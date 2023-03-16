@@ -1,8 +1,6 @@
 # CrudSpringBootThymeleaf
 Crud de ejemplo con Spring boot 3, Spring Security 6, Thymeleaf 3, JQuery, Ajax
 
-Crud de ejemplo con Spring boot 3, Spring Security 6, Thymeleaf 3, JQuery, Ajax
-
 *Proyecto de ejemplo donde se hace uso de:
 -Postgres pgAdmin3
 -Spring boot 3
@@ -13,7 +11,8 @@ Crud de ejemplo con Spring boot 3, Spring Security 6, Thymeleaf 3, JQuery, Ajax
 Usuario por defecto -> admin
 Contraseña por defecto -> admin
 
-*Permisos de la aplicacion 
+*Permisos de la aplicacion
+
 ROLE_ADMIN   --> Administrador full
 ROLE_EMPLOYE --> Solo acceso a Empleado
 ROLE_DEPARTMENT --> Solo acceso a Departamento
