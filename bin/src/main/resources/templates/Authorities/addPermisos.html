@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{templateBase/BaseKiaalap}">
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+
+	<div layout:fragment="content">
+
+		<script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+
+		<!-- Single pro tab review Start-->
+		<div class="single-pro-review-area mt-t-30 mg-b-15">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="product-payment-inner-st">
+							<div class="sparkline13-hd">
+								<div class="main-sparkline13-hd">
+									<h1>Asignar permisos</h1>
+								</div>
+							</div>
+
+							<form class="dropzone dropzone-custom needsclick add-professors" id="demo1-upload"
+								th:action="@{/user/addAuthorityToUser}" method="POST">
+								<div class="item form-group">
+									<label class="col-sm-2 control-label" for="first-name">Usuario <span
+											class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<select id="usuario" name="usuario" class="form-control select2"
+											data-placeholder="Seleccione grupo" tabindex="-1">
+											<option value="-1">Seleccione usuario</option>
+											<option th:each="user :${listusuarios}" th:value="${user.id}"
+												th:text="${user.usernamee}"></option>
+										</select>
+
+									</div>
+
+								</div>
+
+								<div class="item form-group">
+
+									<div id="loadAuthoritiesGroup">
+
+
+
+									</div>
+								</div>
+
+
+
+
+
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+								</div>
+
+							</form>
+
+
+
+							<br />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<script>
+
+
+
+			$(document).ready(function () {
+				$('#usuario').change(function () {
+
+					var usuario = $('#usuario').val();
+					if (usuario != '-1') {
+
+
+
+
+						$.ajax({
+							url: '/user/getPermisoss',
+							dataType: 'html',
+							data: {
+								usuario: usuario
+
+							},
+							success: function (data) {
+
+
+								$("#loadAuthoritiesGroup").trigger('chosen:updated').removeAttr("hidden");
+								$("#loadAuthoritiesGroup").load('/user/getPermisoss', $("#usuario").serialize());
+
+
+							},
+							error: function (data) {
+								toastr["error"](data.body,
+									data.titulo);
+								console.log("No hay resultado");
+							}
+
+						});
+
+					} else {
+
+						$("#loadAuthoritiesGroup").trigger('chosen:updated').attr("hidden", "hidden");
+
+
+					}
+
+				});
+			});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</script>
+
+
+
+
+
+
+
+
+
+	</div>
+
+</body>
+
+</html>

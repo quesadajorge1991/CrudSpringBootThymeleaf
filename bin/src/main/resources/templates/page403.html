@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{templateBase/templateBase}">
+
+<head>
+	<title th:text="#{Page.403.title}"></title>
+</head>
+
+<body>
+
+	<div layout:fragment="content">
+		<div class="error-pagewrap">
+			<div class="error-page-int">
+				<div class="content-error">
+					<h1>
+						ERROR <span class="counter"> 403</span>
+					</h1>
+					<p th:text="#{Page.403.mensaje}" style="color: red;"></p>
+					<a th:href="@{/}">Dashboard</a>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

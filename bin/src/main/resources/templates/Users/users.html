@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{templateBase/BaseKiaalap}">
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+
+	<div layout:fragment="content">
+
+		<!-- Static Table Start -->
+		<div id="gt" class="data-table-area mg-b-15">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="sparkline13-list">
+							<div class="sparkline13-hd">
+								<div class="main-sparkline13-hd">
+									<h1>Usuarios</h1>
+								</div>
+							</div>
+							<div class="sparkline13-graph">
+								<div id="ta" class="datatable-dashv1-list custom-datatable-overright">
+									<div class="add-product">
+										<a class="Primary mg-b-10" th:href="@{/user/addUser}">+ Añadir usuario</a>
+									</div>
+									<table id="tablecliente" data-toggle="table" data-pagination="true"
+										data-search="true" data-show-columns="true" data-show-pagination-switch="true"
+										data-show-refresh="true" data-key-events="true" data-show-toggle="true"
+										data-resizable="true" data-cookie="true" data-cookie-id-table="saveId"
+										data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+										<thead>
+											<tr>
+												<th>Usuario</th>
+												<th>Habilitado</th>
+												<th>Descripción</th>
+												<th>Acciones</th>
+											</tr>
+										</thead>
+										<tbody>
+											<div th:each="us:${listusuarios}">
+												<tr id="fila${us.id}">
+													<td th:text=${us.usernamee}> </td>
+													<td th:text="${us.enabled}"></td>
+
+													<td th:text="${us.descripcion}"></td>
+													<td>
+														<a title="Modificar usuario" class="btn btn-primary"
+															th:href="@{/user/updateUser/}+${us.id}"><i
+																class="fa fa-pencil-square-o"
+																aria-hidden="true"></i></a>
+														<button title="Eliminar usuario" class="btn btn-danger"
+															th:attr="data-target='#DangerModalalert'+${us.id}"
+															type="submit" data-toggle="modal"><i class="fa fa-trash-o"
+																aria-hidden="true"></i></button>
+													</td>
+												</tr>
+
+												<!--modal de aterta de eliminacion-->
+												<div th:id="DangerModalalert+${us.id}"
+													class="modal modal-edu-general FullColor-popup-DangerModal fade"
+													role="dialog">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-close-area modal-close-df">
+																<a class="close" data-dismiss="modal" href="#"><i
+																		class="fa fa-close"></i></a>
+															</div>
+															<div class="modal-body">
+																<span
+																	class="educate-icon educate-danger modal-check-pro information-icon-pro"></span>
+																<h3>
+																	<p> Está seguro que quiere eliminar el usuario
+																		<span th:text="${us.usernamee}"></span></p>
+																</h3>
+																<div class="col-lg-12">
+																	<div class="payment-adress">
+																		<a data-dismiss="modal"
+																			class="btn btn-primary waves-effect waves-light"
+																			href="#">Cancelar</a>
+																		<a type="submit"
+																			class="btn btn-primary waves-effect waves-light"
+																			  th:attr="href='/user/delete_user/'+${us.id}" 
+																			>Eliminar</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

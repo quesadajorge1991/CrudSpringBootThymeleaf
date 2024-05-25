@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{templateBase/BaseKiaalap}">
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+	<div class="form-group">
+		<select th:fragment="users" name="username" id="username" data-placeholder="Seleccione usuario" tabindex="-1" required
+			class="form-control chosen-select">
+			<option value="-1">Seleccione usuario</option>
+
+			<option th:each="user: ${users}" th:value="${user.id}" th:text="${user.usernamee}"></option>
+		</select>
+	</div>
+
+
+
+	<div th:fragment="contentAutorities">
+
+		<div class="float-right">
+			<div class="float-right">
+	
+				
+				<a th:href="@{/}"  class="btn btn-success btn-sm"><i class=" fa fa-home"></i> Cancelar</a>
+				<button type="submit" class="btn btn-primary btn-sm">
+					<i class="fa fa-save"></i> Guardar
+				</button>
+				<span class="section"></span>
+			</div>
+		</div>
+		<br /> <br />
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Display name</th>
+					<th>Authorities</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<th style="color: blue;">1</th>
+					<td style="font-variant: small-caps;">ADMINISTRADOR</td>
+					<td>
+						<div class="i-checks pull-left">
+							<label> <input type="checkbox" class="flat" name="authorities[]" id="ADMIN"
+									value="ROLE_ADMIN" th:checked="${ROLE_ADMIN}">
+							</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th style="color: blue;">2</th>
+					<td style="font-variant: small-caps;">EMPLEADO</td>
+					<td>
+						<div class="i-checks pull-left">
+							<label> <input type="checkbox" class="flat" name="authorities[]" id="EMPLOYE"
+									value="ROLE_EMPLOYE" th:checked="${ROLE_EMPLOYE}">
+							</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th style="color: blue;">3</th>
+					<td style="font-variant: small-caps;">DEPARTAMENTO</td>
+					<td>
+						<div class="i-checks pull-left">
+							<label> <input type="checkbox" class="flat" name="authorities[]" id="DEPARTMENT"
+									value="ROLE_DEPARTMENT" th:checked="${ROLE_DEPARTMENT}">
+							</label>
+						</div>
+					</td>
+				</tr>
+	
+	
+		
+			
+
+
+			
+
+
+
+
+
+
+
+			</tbody>
+		</table>
+
+
+	</div>
+
+
+
+
+
+</body>
+
+</html>

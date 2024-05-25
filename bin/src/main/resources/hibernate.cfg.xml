@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+  <property name="hibernate.connection.password">ok</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/comercialsb</property>
+  <property name="hibernate.connection.username">postgres</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+  
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Authorities"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Cliente"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.GroupAuthorities"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.GroupMembers"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Groups"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Grupo"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Municipio"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Proveedor"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Provincia"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Pueblo"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Servicio"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Solicitud"/>
+  <mapping class="com.springbootapplication.SpringBootApplication.Entity.Tipo_Contrato"/>
+   <mapping class="com.springbootapplication.SpringBootApplication.Entity.Users"/>
+  
+ </session-factory>
+</hibernate-configuration>
